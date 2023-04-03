@@ -1,0 +1,139 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 100;
+}
+
+.logo {
+  max-width: 5em;
+  margin: 2em;
+}
+
+.container {
+  margin-left: 8em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.blur {
+  filter: blur(20px);
+  /* enable to click the button again to remove the blur */
+  pointer-events: none;
+}
+
+/* list styling for the tasks  */
+ul {
+  list-style-type: none;
+}
+ul li:before {
+  content: "-";
+  position: absolute;
+  margin-left: -1em;
+}
+
+ul li {
+  padding: 0.5em;
+  margin-left: 2em;
+  font-size: 16px;
+}
+
+.overlined {
+  text-decoration: line-through;
+}
+
+.delete-image {
+  max-width: 1em;
+  vertical-align: middle;
+}
+
+/* inspiration for the floating action buttons https://youtube.com/shorts/K4Yp34F6IsY?feature=share */
+/* tutorial on the floating action buttons https://www.youtube.com/watch?v=Ra4gyXQ4Naw  */
+/* floaring action button container */
+.fab {
+  position: absolute;
+  bottom: 3em;
+  left: 2em;
+}
+
+.fa-image {
+  max-width: 1em;
+}
+
+/* the plus sign circle  */
+.fab-content {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* rotation on the plus sign  */
+.fab-content-after {
+  transform: rotate(45deg);
+  transition: transform 0.5s ease-in-out 0.1s;
+}
+
+.fab-items {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  z-index: -1;
+}
+
+.item {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+/* tarsforming the buttons from under the plus sign  */
+.task {
+  transform: translate(0, -70px);
+  transition: transform 0.5s ease-in-out 0.1s;
+}
+
+.title {
+  transform: translate(0, -130px);
+  transition: transform 0.5s ease-in-out 0.1s;
+}
+
+/* pop up window  */
+.pop-up-window {
+  background-color: #ffffff;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  width: 60vw;
+  height: 60vh;
+  transform: translate(-50%, -50%);
+  padding: 3em;
+  opacity: 0;
+  transition: 0.5s;
+  box-shadow: 15px 15px 2px 1px rgba(167, 196, 160);
+  border: 1px solid #000000;
+}
+
+.pop-up-open {
+  top: 50%;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.submit-button {
+  background-color: black;
+  color: white;
+  padding: 1em 2em;
+  text-align: center;
+  font-size: 1em;
+  border: 1px solid #000000;
+}
