@@ -3,29 +3,43 @@
   margin: 0px;
   font-family: "Cormorant Garamond", serif;
   font-weight: 100;
+  font-style: italic;
+}
+
+:root {
+  --highlight: rgba(167, 196, 160);
+  --headingfont: "Josefin Sans", sans-serif;
 }
 
 .logo {
   max-width: 5em;
   margin: 2em;
 }
+h2 {
+  font-family: "Josefin Sans", sans-serif;
+  font-style: normal;
+}
 
 .container {
   margin-left: 8em;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 4em;
 }
 
 .blur {
   filter: blur(20px);
   /* enable to click the button again to remove the blur */
   pointer-events: none;
+  height: 100vh;
 }
 
 /* list styling for the tasks  */
 ul {
   list-style-type: none;
 }
+
 ul li:before {
   content: "-";
   position: absolute;
@@ -36,15 +50,25 @@ ul li {
   padding: 0.5em;
   margin-left: 2em;
   font-size: 16px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.overlined {
+.completed {
   text-decoration: line-through;
 }
 
-.delete-image {
-  max-width: 1em;
-  vertical-align: middle;
+ul li img {
+  width: 1em;
+  height: 1em;
+  margin-left: 2em;
+  padding: 2px;
+}
+
+ul li img:hover {
+  background-color: var(--highlight);
+  padding: 2px;
+  border-radius: 50%;
 }
 
 /* inspiration for the floating action buttons https://youtube.com/shorts/K4Yp34F6IsY?feature=share */
@@ -52,8 +76,8 @@ ul li {
 /* floaring action button container */
 .fab {
   position: absolute;
-  bottom: 3em;
-  left: 2em;
+  bottom: 2em;
+  right: 2em;
 }
 
 .fa-image {
@@ -100,11 +124,19 @@ ul li {
 .task {
   transform: translate(0, -70px);
   transition: transform 0.5s ease-in-out 0.1s;
+  z-index: 2;
 }
 
 .title {
   transform: translate(0, -130px);
   transition: transform 0.5s ease-in-out 0.1s;
+  z-index: 2;
+}
+
+.insturctions {
+  float: left;
+  color: red;
+  position: relative;
 }
 
 /* pop up window  */
@@ -119,21 +151,52 @@ ul li {
   padding: 3em;
   opacity: 0;
   transition: 0.5s;
-  box-shadow: 15px 15px 2px 1px rgba(167, 196, 160);
-  border: 1px solid #000000;
+  box-shadow: 15px 15px 2px 1px var(--highlight);
+  border: 5px solid #000000;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .pop-up-open {
   top: 50%;
   opacity: 1;
   transition: 0.5s;
+  visibility: visible;
+}
+
+.input-box {
+  padding: 1em;
+  font-size: 1em;
 }
 
 .submit-button {
   background-color: black;
   color: white;
+  font-family: var(--headingfont);
+  font-style: normal;
   padding: 1em 2em;
   text-align: center;
   font-size: 1em;
   border: 1px solid #000000;
+  max-width: 20vw;
+}
+
+@media only screen and (max-width: 600px) {
+  .logo {
+    max-width: 2em;
+    margin: 1em;
+  }
+  .container {
+    margin-left: 2em;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  ul {
+    margin-right: 2em;
+    margin-bottom: 2em;
+  }
 }
