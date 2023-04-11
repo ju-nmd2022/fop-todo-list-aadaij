@@ -23,13 +23,10 @@
         <img class="logo" src="images/todo-logo.png" alt="todo app logo" />
       </header>
 
-      <div class="container">
+      <div class="container" id="titleContainer">
         <article class="todolist">
-          <h2>TO DO LIST</h2>
+          <h2 id="heading">TO DO LIST</h2>
           <ul id="listContainer" class="to-be-completed-list"></ul>
-        </article>
-        <article>
-          <h2>SCHOOL</h2>
         </article>
       </div>
 
@@ -58,6 +55,17 @@
         placeholder="I have to..."
       />
       <button onclick="addingTask()" class="submit-button">ADD</button>
+    </div>
+
+    <div id="titlePopUpWindow" class="pop-up-window">
+      <h2>change the title</h2>
+      <input
+        class="input-box"
+        type="text"
+        id="inputFieldTitle"
+        placeholder="Choose your title for the taks"
+      />
+      <button onclick="addingTitle()" class="submit-button">ADD</button>
     </div>
   </body>
 </html>

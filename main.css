@@ -15,17 +15,20 @@
   max-width: 5em;
   margin: 2em;
 }
+
 h2 {
   font-family: "Josefin Sans", sans-serif;
   font-style: normal;
+  text-transform: uppercase;
 }
 
 .container {
   margin-left: 8em;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 4em;
+  grid-auto-flow: column;
 }
 
 .blur {
@@ -78,6 +81,7 @@ ul li img:hover {
   position: absolute;
   bottom: 2em;
   right: 2em;
+  z-index: 1;
 }
 
 .fa-image {
